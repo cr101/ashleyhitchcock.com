@@ -6481,6 +6481,12 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
+tiny-slider-react@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/tiny-slider-react/-/tiny-slider-react-0.3.7.tgz#97ba77f330ad12fc0a02c1f4737bbc9f66ba07be"
+  dependencies:
+    ventura-slider "^1.0.7"
+
 tmp@^0.0.33:
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
@@ -6759,6 +6765,10 @@ validate-npm-package-license@^3.0.1:
 vary@^1, vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
+
+ventura-slider@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/ventura-slider/-/ventura-slider-1.0.7.tgz#8c11d7b831da0e248c99d9d1171d1733a0a3744d"
 
 verror@1.10.0:
   version "1.10.0"

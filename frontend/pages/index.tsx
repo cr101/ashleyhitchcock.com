@@ -4,10 +4,10 @@ import Link from "next/link";
 import NextSeo from "next-seo";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import ErrorMessage from "./../components/ErrorMessage";
-import Grid from "./../components/Grid";
-import Intro from "./../components/Intro";
-import Layout from "./../components/Layout";
+import ErrorMessage from "../components/ErrorMessage";
+import Grid from "../components/Grid";
+import Intro from "../components/Intro";
+import Layout from "../components/Layout";
 import Loader from "../components/Loader";
 import PageWrapper from "../components/PageWrapper";
 import StyledLink from "../components/styles/Button";
@@ -123,15 +123,6 @@ class Index extends Component {
       </>
     );
   }
-
-  // componentDidMount = () => {
-  //     if ("serviceWorker" in navigator) {
-  //         navigator.serviceWorker.register("/static/service-worker.js")
-  //             .catch(err => console.error("Service worker registration failed", err));
-  //     } else {
-  //         console.log("Service worker not supported");
-  //     }
-  // }
 }
 
 export default PageWrapper(Index);
