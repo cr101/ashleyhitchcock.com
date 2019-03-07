@@ -1,10 +1,9 @@
-import React from "react";
-import TinySlider from "tiny-slider-react";
-
-import Card from "./Card";
+import React, { useEffect, useState, useRef } from 'react';
+import { tns } from 'tiny-slider/src/tiny-slider.module';
+import 'tiny-slider/dist/tiny-slider.css';
 
 const settings = {
-  lazyload: true,
+  lazyload: false,
   nav: false,
   mouseDrag: true,
   responsive: {
@@ -12,21 +11,32 @@ const settings = {
       edgePadding: 20,
       gutter: 20,
       items: 2,
-      disable: true
-    }
-  }
+      disable: true,
+    },
+  },
 };
 
-const Grid = ({ cards, linkType }) => (
-  <TinySlider settings={settings}>
-    {!!cards && cards.length
-      ? cards.map((card, index) => (
-          <div key={index}>
-            <Card {...card.node} linkType={linkType} />
-          </div>
-        ))
-      : null}
-  </TinySlider>
-);
+const GridSlider = ({ children }) => {
+  const [slider, setSlider] = useState(null);
+  const sliderContainer = useRef(null);
 
-export default Grid;
+  useEffect(() => {
+    const theSlider = tns({
+      ...settings,
+      container: sliderContainer.current,
+    });
+    setSlider(theSlider);
+  }, []);
+
+  const goToSlide = index => {
+    slider.goTo(index);
+  };
+
+  return (
+    <div ref={sliderContainer}>
+      {React.Children.map(children, (child, index) => React.cloneElement(child, { onClick: () => goToSlide(index) }))}
+    </div>
+  );
+};
+
+export default GridSlider;
