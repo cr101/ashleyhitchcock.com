@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
-import styled, { keyframes } from 'styled-components';
-import Link from './Link';
-import media from './styles/media';
-import Loader from './Loader';
-import ErrorMessage from './ErrorMessage';
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
+import styled, { keyframes } from "styled-components";
+import Link from "./Link";
+import media from "./styles/media";
+import Loader from "./Loader";
+import ErrorMessage from "./ErrorMessage";
 
 export const MENU_QUERY = gql`
   query menuItems {
@@ -108,12 +108,12 @@ const StyledMenu = styled.div`
 
       &:after {
         display: block;
-        content: '';
+        content: "";
         background: ${props => props.theme.secondary};
         height: 0.6ex;
         position: absolute;
-        left: -2px;
-        right: -2px;
+        left: -5%;
+        right: 90%;
         bottom: 15px;
         z-index: -1;
         transition: all 0.2s ease-in-out;
@@ -122,19 +122,21 @@ const StyledMenu = styled.div`
       &.is-active:after {
         background: ${props => props.theme.highlight};
         animation: ${menuAni} 1s ease 2;
+        right: -5%;
       }
 
       &:hover:after {
         transform: rotate(4deg);
         background: ${props => props.theme.highlight};
+        right: -5%;
       }
     }
   }
 `;
 const Menu = (props: IMenuProps) => {
   const getSlug = url => {
-    const parts = url.split('/');
-    return parts.length > 2 ? parts[parts.length - 2] : '';
+    const parts = url.split("/");
+    return parts.length > 2 ? parts[parts.length - 2] : "";
   };
 
   return (
@@ -151,7 +153,7 @@ const Menu = (props: IMenuProps) => {
                 const { id, url, title, label, connectedObject } = item.node;
                 const object = connectedObject.__typename.toLowerCase();
 
-                if (object === 'menuitem') {
+                if (object === "menuitem") {
                   return (
                     <li key={id}>
                       <Link href={url}>
@@ -161,10 +163,13 @@ const Menu = (props: IMenuProps) => {
                   );
                 }
                 const slug = getSlug(url);
-                const actualPage = object === 'category' ? 'category' : 'post';
+                const actualPage = object === "category" ? "category" : "post";
                 return (
                   <li key={id}>
-                    <Link as={`/${object}/${slug}`} href={`/${actualPage}?slug=${slug}&apiRoute=${object}`}>
+                    <Link
+                      as={`/${object}/${slug}`}
+                      href={`/${actualPage}?slug=${slug}&apiRoute=${object}`}
+                    >
                       <a>{title || label}</a>
                     </Link>
                   </li>

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledContent = styled.div`
   a {
@@ -11,12 +11,13 @@ const StyledContent = styled.div`
 
     &:after {
       display: block;
-      content: '';
+      content: "";
       background: ${props => props.theme.highlight};
-      height: 12px;
-      width: 100%;
+      height: 10px;
+
       position: absolute;
       left: 0;
+      right: 0;
       bottom: 10px;
       z-index: -1;
       transition: all 0.2s ease-in-out;
@@ -26,6 +27,7 @@ const StyledContent = styled.div`
 
     &:hover:after {
       transform: rotate(2deg);
+      right: 100%;
       bottom: 0;
     }
     &:nth-child(odd):hover:after {
