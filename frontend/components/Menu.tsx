@@ -46,9 +46,9 @@ interface IItemsProps {
 }
 
 const menuAni = keyframes`
-  0%{transform: rotate(5deg);}
+  0%{transform: rotate(3deg);}
   50%{transform: rotate(0deg);}
-  100%{transform: rotate(5deg);}
+  100%{transform: rotate(3deg);}
   `;
 
 const StyledMenu = styled.div`
@@ -73,6 +73,7 @@ const StyledMenu = styled.div`
 
       ${media.md`
       justify-content: flex-end;
+      overflow-x: visible;
     `}
     }
 
@@ -109,13 +110,14 @@ const StyledMenu = styled.div`
         display: block;
         content: '';
         background: ${props => props.theme.secondary};
-        height: 0.4ex;
+        height: 0.6ex;
         position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 10px;
+        left: -2px;
+        right: -2px;
+        bottom: 15px;
         z-index: -1;
         transition: all 0.2s ease-in-out;
+        transform: rotate(2deg);
       }
       &.is-active:after {
         background: ${props => props.theme.highlight};

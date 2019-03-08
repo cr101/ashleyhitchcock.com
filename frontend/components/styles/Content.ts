@@ -13,7 +13,7 @@ const StyledContent = styled.div`
       display: block;
       content: '';
       background: ${props => props.theme.highlight};
-      height: 20px;
+      height: 12px;
       width: 100%;
       position: absolute;
       left: 0;
@@ -21,7 +21,7 @@ const StyledContent = styled.div`
       z-index: -1;
       transition: all 0.2s ease-in-out;
       bottom: 0;
-      transform: rotate(4deg);
+      transform: rotate(3deg);
     }
 
     &:hover:after {
